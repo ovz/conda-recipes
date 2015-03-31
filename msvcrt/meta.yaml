@@ -1,0 +1,10 @@
+package:
+  name: msvcrt
+  version: 11.0.0
+
+source:
+  path: bin
+
+about:
+  home: http://www.salford-systems.com/
+  summary: Distribute Microsoft Visual C++ runtime required by other Salford Systems packages. Package version mathes version of Visual Studio. 
