@@ -1,0 +1,10 @@
+package:
+  name: boost-bin
+  version: 0.1.0
+
+source:
+  path: bin
+
+about:
+  home: http://www.salford-systems.com/
+  summary: Distribute boost binaries required by other Salford Systems packages.
