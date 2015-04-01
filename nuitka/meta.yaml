@@ -1,11 +1,11 @@
 package:
   name: nuitka
-  version: !!str 0.5.9
+  version: "0.5.11.2"
 
 source:
-  fn: Nuitka-0.5.9.tar.gz
-  url: https://pypi.python.org/packages/source/N/Nuitka/Nuitka-0.5.9.tar.gz
-  md5: 55667047e4b0575047a9d4c554ab9df7
+  fn: Nuitka-0.5.11.2.tar.gz
+  url: https://pypi.python.org/packages/source/N/Nuitka/Nuitka-0.5.11.2.tar.gz
+  md5: 1aea3a0653ca626a8806164ee0150cd8
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -44,6 +44,7 @@ test:
     - nuitka.gui
     - nuitka.nodes
     - nuitka.optimizations
+    - nuitka.plugins
     - nuitka.tree
 
   # commands:
