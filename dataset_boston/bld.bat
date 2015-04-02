@@ -1,0 +1,1 @@
+bash build_crossplatform.sh

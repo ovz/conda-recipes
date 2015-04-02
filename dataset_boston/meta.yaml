@@ -1,0 +1,7 @@
+package:
+  name: datasets_boston
+  version: 1.0.0
+
+about:
+  home: http://www.salford-systems.com/
+  summary: Boston housing dataset.
