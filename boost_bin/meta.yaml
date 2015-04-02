@@ -1,9 +1,6 @@
 package:
-  name: boost-bin
+  name: boost_bin
   version: 1.55.1
-
-source:
-  path: bin
 
 about:
   home: http://www.salford-systems.com/
