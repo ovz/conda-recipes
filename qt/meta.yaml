@@ -9,22 +9,23 @@ source:
   patches:
     - acceptance.patch
     - qmake-arch.patch                 [osx]
-    - wkhtmltopdf.patch                [linux]
     - ubuntu_disable_scrollbars.patch  [linux]
 
 build:
-  number: 12
+  number: 15
 
 requirements:
   build:
     - freetype    >=2.5.2    [unix]
     - fontconfig  >=2.11.1   [linux]
     - openssl
+    - libpng      1.6*
 
   run:
     - freetype    >=2.5.2    [unix]
     - fontconfig  >=2.11.1   [linux]
     - openssl
+    - libpng      1.6*
 
 about:
     home: http://qt-project.org

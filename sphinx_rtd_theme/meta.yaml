@@ -1,16 +1,17 @@
 package:
   name: sphinx_rtd_theme
-  version: !!str 0.1.6
+  version: "0.1.8"
 
 source:
-  fn: sphinx_rtd_theme-0.1.6.tar.gz
-  url: https://pypi.python.org/packages/source/s/sphinx_rtd_theme/sphinx_rtd_theme-0.1.6.tar.gz
-  md5: 8df56a300c8c69f17e1ffbee194b2a26
+  fn: sphinx_rtd_theme-0.1.8.tar.gz
+  url: https://pypi.python.org/packages/source/s/sphinx_rtd_theme/sphinx_rtd_theme-0.1.8.tar.gz
+  md5: 713ce7c53239449bdd799385577329ee
 #  patches:
    # List any patch files here
    # - fix.patch
 
 # build:
+  # noarch_python: True
   # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
@@ -29,11 +30,11 @@ requirements:
   build:
     - python
     - setuptools
-    - sphinx >=1.2
+    - sphinx >=1.3
 
   run:
     - python
-    - sphinx >=1.2
+    - sphinx >=1.3
 
 test:
   # Python imports
