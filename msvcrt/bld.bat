@@ -1,2 +1,1 @@
-set msvcrt_dir=Win%ARCH%
-cp --recursive %msvcrt_dir%/* %SP_DIR%
+xcopy /Y /I /E Win%ARCH%\* %SP_DIR%
