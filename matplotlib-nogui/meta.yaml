@@ -1,5 +1,5 @@
 package:
-  name: matplotlib
+  name: matplotlib-nogui
   version: 1.4.3
 
 source:
@@ -35,3 +35,6 @@ requirements:
 about:
   home: http://matplotlib.sourceforge.net/
   license: PSF-based (http://matplotlib.sourceforge.net/users/license.html)
+  description: |
+    matplotlib package without any GUI dependencies (no Tk, no Qt, no GTK).
+    https://github.com/salford-systems/conda-recipes
