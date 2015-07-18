@@ -1,0 +1,37 @@
+package:
+  name: matplotlib
+  version: 1.4.3
+
+source:
+  fn: matplotlib-1.4.3.tar.gz
+  url: https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.4.3/matplotlib-1.4.3.tar.gz
+  md5: 67a28a359af4919896d1ec74b6e6b3ce
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - python-dateutil
+    - freetype
+    - nose
+    - mock
+    - pyparsing
+    - pytz
+    - py2cairo            [linux and py2k]
+    - tornado
+    - libpng
+    - zlib                [win]
+  run:
+    - python
+    - numpy
+    - python-dateutil
+    - freetype            [unix]
+    - pytz
+    - pyparsing
+    - py2cairo            [linux and py2k]
+    - libpng              [unix]
+
+about:
+  home: http://matplotlib.sourceforge.net/
+  license: PSF-based (http://matplotlib.sourceforge.net/users/license.html)
