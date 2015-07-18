@@ -29,12 +29,14 @@ requirements:
   build:
     - python
     - setuptools
-    - matplotlib
+    - matplotlib-nogui
     - brewer2mpl
 
   run:
     - python
-    - matplotlib
+    # To avoid strict dependency to matplotlib or matplotlib-nogui we disable this until "provides"
+    # functionality is merged to conda
+    #- matplotlib
     - brewer2mpl
 
 test:
@@ -50,9 +52,8 @@ test:
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+  requires:
+    - matplotlib-nogui
 
 about:
   home: http://olgabot.github.io/prettyplotlib
