@@ -2,15 +2,15 @@
 
 if [[ "$(uname)" == "Darwin" ]]
 then
-    sed "s:#ifdef WITH_NEXT_FRAMEWORK:#if 1:g" -i src/_macosx.m
+    sed -i "s:#ifdef WITH_NEXT_FRAMEWORK:#if 1:g" src/_macosx.m
 fi
 
 cp setup.cfg.template setup.cfg || exit 1
 
-sed "s:/usr/local:$PREFIX:g" -i setupext.py
+sed -i "s:/usr/local:$PREFIX:g" setupext.py
 
 # Break Tkinter so it is not get compiled into matplotlib
-sed -r 's:(import( tkinter as)? Tkinter):import no_Tkinter:' -i setupext.py
+sed -i -r 's:(import( tkinter as)? Tkinter):import no_Tkinter:' setupext.py
 
 "$PYTHON" setup.py install
 
