@@ -2,10 +2,10 @@
 
 if [[ "$(uname)" == "Darwin" ]]
 then
-    SED_INPLACE=("sed" "-i" "")
+    SED_INPLACE=("sed" "-i" "" "-E")
     "${SED_INPLACE[@]}" "s:#ifdef WITH_NEXT_FRAMEWORK:#if 1:g" src/_macosx.m
 else
-    SED_INPLACE=("sed" "-i")
+    SED_INPLACE=("sed" "-i" "-r")
 fi
 
 cp setup.cfg.template setup.cfg || exit 1
@@ -13,7 +13,7 @@ cp setup.cfg.template setup.cfg || exit 1
 "${SED_INPLACE[@]}" "s:/usr/local:$PREFIX:g" setupext.py
 
 # Break Tkinter so it is not get compiled into matplotlib
-"${SED_INPLACE[@]}" -r 's:(import( tkinter as)? Tkinter):import no_Tkinter:' setupext.py
+"${SED_INPLACE[@]}" 's:(import( tkinter as)? Tkinter):import no_Tkinter:' setupext.py
 
 "$PYTHON" setup.py install
 
