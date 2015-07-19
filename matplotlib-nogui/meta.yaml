@@ -9,6 +9,9 @@ source:
   patches:
     - disable_plugins.patch
 
+build:
+  number: 1
+
 requirements:
   build:
     - python
