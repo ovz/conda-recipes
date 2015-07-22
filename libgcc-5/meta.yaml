@@ -1,13 +1,13 @@
 package:
-  name: libgcc
+  name: libgcc-5
   version: "5.2.0"
 
 requirements:
   build:
-    - gcc 5.2.0
+    - gcc-5 5.2.0
 
 build:
-  number: 0
+  number: 1
 
   always_include_files:
     - lib/libgcc_s.1.dylib # [osx]
