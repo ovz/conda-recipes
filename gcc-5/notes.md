@@ -7,7 +7,7 @@ image was used and the following packages installed:
 * required to unpack GCC:
     tar bzip2
 * required to build GCC:
-    gcc gcc-c++ zip
+    gcc gcc-c++ make zip
 * installed just in case (I'm not sure if they are really required):
     gzip unzip perl
 

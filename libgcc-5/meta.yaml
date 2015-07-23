@@ -7,7 +7,7 @@ requirements:
     - gcc-5 5.2.0
 
 build:
-  number: 1
+  number: 2
 
   always_include_files:
     - lib/libgcc_s.1.dylib # [osx]

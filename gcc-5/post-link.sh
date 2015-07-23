@@ -46,7 +46,7 @@ if [ "$(uname)" != "Darwin" ]; then
             for obj_file in $C_RUNTIME_OBJ_FILES; do
                 obj_file_full_path="$library_path/$obj_file"
                 if [[ -e "$obj_file_full_path" ]]; then
-                    ln -s "$obj_file_full_path" "${PREFIX}/lib/gcc/"*/*/
+                    ln -sf "$obj_file_full_path" "${PREFIX}/lib/gcc/"*/*/
                     c_runtime_obj_files_found=1
                 fi
             done
@@ -67,7 +67,7 @@ if [ "$(uname)" != "Darwin" ]; then
                 for obj_file in $C_RUNTIME_OBJ_FILES; do
                     obj_file_full_path=$($SYSTEM_GCC -print-file-name="$obj_file")
                     if [[ "$obj_file_full_path" != "$obj_file" ]]; then
-                        ln -s "$obj_file_full_path" "${PREFIX}/lib/gcc/"*/*/
+                        ln -sf "$obj_file_full_path" "${PREFIX}/lib/gcc/"*/*/
                         c_runtime_obj_files_found=1
                     fi
                 done
