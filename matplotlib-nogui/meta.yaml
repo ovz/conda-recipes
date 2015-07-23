@@ -29,6 +29,7 @@ requirements:
     - zlib                [win]
   run:
     - python
+    - libgcc-5            [linux]
     - numpy
     - python-dateutil
     - freetype            [unix]
