@@ -1,7 +1,13 @@
 package:
-  name: boost_bin
-  version: 1.57.0.2
-
+  name: boost_bin_debug
+  version: 1.57.0.4
+  
+requirements:
+  build:
+    - boost_bin_common
+  run:
+    - boost_bin_headers  
+    
 about:
   home: http://www.salford-systems.com/
-  summary: Distribute boost binaries required by other Salford Systems packages.
+  summary: Distribute boost binaries required by other Salford Systems packages. Use this package to install libraries linked by /MDd Visual Studio configuration. The source of binaries is http://sourceforge.net/projects/boost/files/boost-binaries. 

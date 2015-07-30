@@ -1,0 +1,7 @@
+package:
+  name: boost_bin_common
+  version: 1.0.3
+
+about:
+  home: http://www.salford-systems.com/
+  summary: Common functionality for boost binaries distirbuted at http://sourceforge.net/projects/boost/files/boost-binaries. 

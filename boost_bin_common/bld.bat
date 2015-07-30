@@ -1,0 +1,1 @@
+copy /Y Copy-Boost.ps1 %PREFIX%

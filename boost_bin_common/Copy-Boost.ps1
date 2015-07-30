@@ -1,5 +1,6 @@
 ﻿param(
-     $boost_bin_root="C:\local\boost_1_57_0"
+     $build_type_suffix = ""
+   , $boost_bin_root="C:\local\boost_1_57_0"
    , $ARCH = "64"
    , $SP_DIR = "c:\__temp\src\copy_boost\sp_dir"
    , $LIBRARY_LIB = "c:\__temp\src\copy_boost\lib"
@@ -45,14 +46,14 @@ function Get-ScriptDirPath
 Copy-Item $(Join-Path $boost_bin_root "boost") $LIBRARY_INC -Force -Recurse -Verbose
 
 $lib_globs = (
-"boost_chrono*",
-"boost_date_time*",
-"boost_filesystem*",
-"boost_python*",
-"boost_regex*",
-"boost_serialization*",
-"boost_system*",
-"boost_thread*"
+"boost_chrono*$build_type_suffix*",
+"boost_date_time*$build_type_suffix*",
+"boost_filesystem*$build_type_suffix*",
+"boost_python*$build_type_suffix*",
+"boost_regex*$build_type_suffix*",
+"boost_serialization*$build_type_suffix*",
+"boost_system*$build_type_suffix*",
+"boost_thread*$build_type_suffix*"
 )
 
 $src_dir = Join-Path $boost_bin_root "lib$ARCH-msvc-12.0"
@@ -65,6 +66,7 @@ function Copy-Globs(
 {
     foreach ($lib_glob in $lib_globs)
     {
+       #Write-Host "Current glob is $lib_glob"
        Copy-Item $(Join-Path $src_dir "$lib_glob$glob_suffix") $dst_dir -Force -Recurse -Verbose
     }
 }
