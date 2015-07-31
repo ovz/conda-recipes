@@ -1,0 +1,7 @@
+package:
+  name: atl_vc
+  version: 12.0.31101.00.0
+
+about:
+  home: https://en.wikipedia.org/wiki/Active_Template_Library
+  summary:  The Active Template Library (ATL) is a set of template-based C++ classes developed by Microsoft, intended to simplify the programming of Component Object Model (COM) objects. This package contains the version distributed with Visual C++. 

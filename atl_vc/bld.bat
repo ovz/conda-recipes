@@ -1,0 +1,1 @@
+copy /Y atl_vc_12\Include %LIBRARY_INC%

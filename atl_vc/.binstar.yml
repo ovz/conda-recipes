@@ -1,0 +1,4 @@
+package: atl_vc
+user: salford_systems
+build_targets:
+  - conda
