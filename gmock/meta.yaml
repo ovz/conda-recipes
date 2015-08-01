@@ -1,0 +1,7 @@
+package:
+  name: gmock
+  version: 1.7.0
+
+about:
+  home: https://code.google.com/p/googlemock/
+  summary: Google C++ Mocking Framework. Incorporates Google Test, Google's framework for writing C++ tests on a variety of platforms (Linux, Mac OS X, Windows, Cygwin, Windows CE, and Symbian). Based on the xUnit architecture. 
