@@ -1,0 +1,4 @@
+package: boost_bin_common
+user: salford_systems
+build_targets:
+  - conda
