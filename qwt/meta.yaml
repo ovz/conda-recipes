@@ -1,0 +1,7 @@
+package:
+  name: qwt
+  version: 6.1.2
+
+about:
+  home: http://qwt.sourceforge.net/
+  summary: Qwt or Qt Widgets for Technical Applications is a set of custom Qt widgets, GUI Components and utility classes which are primarily useful for programs with a technical background. 
