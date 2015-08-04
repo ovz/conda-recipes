@@ -1,6 +1,6 @@
 package:
   name: gmock
-  version: 1.7.0
+  version: 1.7.0.1
 
 about:
   home: https://code.google.com/p/googlemock/
