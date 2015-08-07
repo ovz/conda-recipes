@@ -7,7 +7,7 @@ source:
   url: http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.bz2
 
 build:
-  number: 999
+  number: 1000
 
 requirements:
   build:
