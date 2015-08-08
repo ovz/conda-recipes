@@ -18,6 +18,7 @@ requirements:
     - setuptools
     - numpy
     - python-dateutil
+    - pkg-config          [unix]
     - freetype
     - nose
     - mock
