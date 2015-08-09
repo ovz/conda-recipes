@@ -24,7 +24,7 @@ if [ "$(uname)" == "Darwin" ]; then
         --prefix="${PREFIX}" \
         | tee bootstrap.log 2>&1
 
-    ./b2 \
+    ./b2 -q \
         variant=release \
         address-model=64 \
         architecture=x86 \
@@ -32,7 +32,7 @@ if [ "$(uname)" == "Darwin" ]; then
         threading=multi \
         link=shared \
         toolset=clang \
-        include="${INCLUDE_PATH}"
+        include="${INCLUDE_PATH}" \
         cxxflags="${CXXFLAGS}" \
         linkflags="${LINKFLAGS}" \
         -j"$(sysctl -n hw.ncpu)" \
@@ -47,7 +47,7 @@ if [ "$(uname)" == "Linux" ]; then
         --with-icu="${PREFIX}" \
         | tee bootstrap.log 2>&1
 
-    ./b2 -q -d0 \
+    ./b2 -q \
         variant=release \
         address-model="${ARCH}" \
         architecture=x86 \
