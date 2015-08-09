@@ -9,25 +9,30 @@
 # http://stackoverflow.com/questions/20108407/how-do-i-compile-boost-for-os-x-64b-platforms-with-stdlibc
 
 set -x -e
- 
+
+INCLUDE_PATH="${PREFIX}/include"
+LIBRARY_PATH="${PREFIX}/lib"
+
 if [ "$(uname)" == "Darwin" ]; then
     MACOSX_VERSION_MIN=10.8
     CXXFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN}"
     CXXFLAGS="${CXXFLAGS} -std=c++11 -stdlib=libc++"
-    LINKFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN} "
-    LINKFLAGS="${LINKFLAGS} -stdlib=libc++"
+    LINKFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN}"
+    LINKFLAGS="${LINKFLAGS} -stdlib=libc++ -L${LIBRARY_PATH}"
 
     ./bootstrap.sh \
-        --prefix="${PREFIX}/" \
+        --prefix="${PREFIX}" \
         | tee bootstrap.log 2>&1
 
     ./b2 \
         variant=release \
         address-model=64 \
         architecture=x86 \
+        debug-symbols=off \
         threading=multi \
         link=shared \
         toolset=clang \
+        include="${INCLUDE_PATH}"
         cxxflags="${CXXFLAGS}" \
         linkflags="${LINKFLAGS}" \
         -j"$(sysctl -n hw.ncpu)" \
@@ -49,12 +54,11 @@ if [ "$(uname)" == "Linux" ]; then
         debug-symbols=off \
         threading=multi \
         runtime-link=shared \
-        link=shared,static \
+        link=shared \
         toolset=gcc \
         python="${PY_VER}" \
-        cflags="-O3 -I${PREFIX}/include" \
-        cxxflags="-O3 -I${PREFIX}/include" \
-        linkflags="-L${PREFIX}/lib" \
+        include="${INCLUDE_PATH}" \
+        linkflags="-L${LIBRARY_PATH}" \
         --layout=system \
         -j"${CPU_COUNT}" \
         install | tee b2.log 2>&1
