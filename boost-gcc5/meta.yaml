@@ -1,0 +1,30 @@
+package:
+  name: boost-gcc5
+  version: 1.59.0
+
+source:
+  fn: boost_1_59_0.tar.bz2
+  url: http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.bz2
+  md5: 6aa9a5c6a4ca1016edd0ed1178e3cb87
+
+build:
+  number: 2
+
+requirements:
+  build:
+    - gcc-5             [unix]
+    - python
+    - icu               [unix]
+    - bzip2             [unix]
+    - libpython         [win]
+
+  run:
+    - libgcc5           [unix]
+    # python dependency is here due to libboost-python library that depends on python versioni
+    - python
+    - icu               [unix]
+
+about:
+  home: http://www.boost.org/
+  license: Boost-1.0
+
