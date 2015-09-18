@@ -1,5 +1,5 @@
 package:
-  name: boost
+  name: boost-static
   version: 1.59.0
 
 source:
