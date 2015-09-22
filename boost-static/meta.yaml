@@ -13,6 +13,7 @@ build:
 requirements:
   build:
     - python
+    - gcc               [unix]
     - icu               [unix]
     - bzip2             [unix]
     - libpython         [win]
