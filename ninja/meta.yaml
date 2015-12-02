@@ -1,0 +1,22 @@
+package:
+  name: ninja
+  version: 1.6.0
+
+source:
+  fn: v1.6.0.tar.gz
+  url: https://github.com/martine/ninja/archive/v1.6.0.tar.gz
+  sha1: a6ff055691f6d355234298c21cc18961b4ca2ed9
+
+build:
+  number: 0
+
+requirements:
+  build:
+  run:
+
+test:
+  commands:
+    - ninja --help
+
+about:
+  home: http://martine.github.io/ninja/
