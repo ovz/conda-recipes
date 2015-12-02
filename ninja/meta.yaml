@@ -16,7 +16,7 @@ requirements:
 
 test:
   commands:
-    - ninja --help
+    - ninja --version
 
 about:
   home: http://martine.github.io/ninja/
