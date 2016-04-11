@@ -6,14 +6,5 @@
 if "%PY_VER%" == "2.7" rmdir /S /Q "invoke\vendor\yaml3"
 else rmdir /S /Q "invoke\vendor\yaml2"
 
-:: Workaround conda-build issue #251: https://github.com/conda/conda-build/issues/251
-ECHO program_run = program.run >>"invoke\main.py"
-
 "%PYTHON%" setup.py install
 if errorlevel 1 exit 1
-
-:: Add more build steps here, if they are necessary.
-
-:: See
-:: http://docs.continuum.io/conda/build.html
-:: for a list of environment variables that are set during the build process.

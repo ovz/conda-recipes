@@ -4,6 +4,7 @@ package:
 
 source:
   git_url: https://github.com/frol/invoke.git
+  git_tag: patch-1
 
 build:
   # There is still an issue with noarch_python packages. Such packages cannot be installed from
@@ -11,19 +12,16 @@ build:
   #noarch_python: true
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
   entry_points:
-    # Workaround conda-build issue #251: https://github.com/conda/conda-build/issues/251
-    - invoke = invoke.main:program_run
-    - inv = invoke.main:program_run
+    - invoke = invoke.main:program.run
+    - inv = invoke.main:program.run
 
 requirements:
   build:
     - python
     - setuptools
-    - six
 
   run:
     - python
-    - six
 
 test:
   imports:
@@ -37,6 +35,6 @@ about:
   home: https://github.com/pyinvoke/invoke/
   license: BSD License
   summary: |
-    Invoke is a Python (2.6+ and 3.2+) task execution tool & library, drawing
+    Invoke is a Python (2.6+ and 3.3+) task execution tool & library, drawing
     inspiration from various sources to arrive at a powerful & clean feature
     set.
