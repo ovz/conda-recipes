@@ -15,7 +15,8 @@ requirements:
     - python
     - nomkl  # [unix]
     - setuptools
-    - matplotlib-nogui
+    - matplotlib  # [win]
+    - matplotlib-nogui  # [unix]
     - brewer2mpl
 
   run:
