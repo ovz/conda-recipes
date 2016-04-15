@@ -5,7 +5,7 @@ package:
 source:
   fn: matplotlib-1.5.1.tar.gz
   url: https://github.com/matplotlib/matplotlib/archive/v1.5.1.tar.gz
-  md5sum: b22dc4962f36aab919a7125b3b35953b
+  md5: b22dc4962f36aab919a7125b3b35953b
 
 requirements:
   build:
