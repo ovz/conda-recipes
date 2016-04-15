@@ -6,7 +6,7 @@ source:
   fn: prettyplotlib-0.1.7.tar.gz
   url: https://pypi.python.org/packages/source/p/prettyplotlib/prettyplotlib-0.1.7.tar.gz
   md5: 85e4d27cefb86d5b2161eff94a77a7bc
-   patches:
+  patches:
     # Clear all setuptools dependencies since they are not required, and also they
     # break our recipe when we use matplotlib-nogui package instead of matplotlib.
     - remove-inline-dependencies.patch
