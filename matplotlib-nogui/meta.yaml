@@ -1,47 +1,50 @@
 package:
   name: matplotlib-nogui
-  version: 1.4.3
+  version: 1.5.1
 
 source:
-  fn: matplotlib-1.4.3.tar.gz
-  url: https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.4.3/matplotlib-1.4.3.tar.gz
-  md5: 67a28a359af4919896d1ec74b6e6b3ce
-  patches:
-    - disable_plugins.patch
-
-build:
-  number: 1
+  fn: matplotlib-1.5.1.tar.gz
+  url: https://github.com/matplotlib/matplotlib/archive/v1.5.1.tar.gz
+  md5sum: b22dc4962f36aab919a7125b3b35953b
 
 requirements:
   build:
     - python
     - setuptools
+    - nomkl
     - numpy
     - python-dateutil
-    - pkg-config          [unix]
     - freetype
+    - msinttypes  # [win]
+    - cycler
     - nose
-    - mock
     - pyparsing
     - pytz
-    - py2cairo            [linux and py2k]
     - tornado
-    - libpng
-    - zlib                [win]
+    - libpng  # [unix]
+    - zlib  # [win]
   run:
     - python
-    - libgcc-5            [linux]
     - numpy
+    - cycler
     - python-dateutil
-    - freetype            [unix]
+    - freetype
     - pytz
     - pyparsing
-    - py2cairo            [linux and py2k]
-    - libpng              [unix]
+    - libpng  # [unix]
+
+test:
+    imports:
+        - matplotlib
+        - matplotlib.pyplot
 
 about:
-  home: http://matplotlib.sourceforge.net/
-  license: PSF-based (http://matplotlib.sourceforge.net/users/license.html)
-  summary: |
-    matplotlib package without any GUI dependencies (no Tk, no Qt, no GTK).
-    https://github.com/salford-systems/conda-recipes
+  home: http://matplotlib.org/
+  license: PSF-based (http://matplotlib.org/users/license.html)
+  summary: Publication quality figures in Python
+
+extra:
+  recipe-maintainers:
+    - pelson
+    - tacaswell
+    - JanSchulz

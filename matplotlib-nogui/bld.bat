@@ -1,26 +1,25 @@
-mkdir lib
-copy %LIBRARY_LIB%\zlibstatic.lib lib\z.lib
-if errorlevel 1 exit 1
-copy %LIBRARY_LIB%\libpng_static.lib lib\png.lib
-if errorlevel 1 exit 1
+set LIB=%LIBRARY_LIB%
+set LIBPATH=%LIBRARY_LIB%;
+set INCLUDE=%LIBRARY_INC%;%PREFIX%\Library\include\freetype2
 
-set LIB=%LIBRARY_LIB%;.\lib
-set LIBPATH=%LIBRARY_LIB%;.\lib
-set INCLUDE=%LIBRARY_INC%
-
-copy setup.cfg.template setup.cfg
-if errorlevel 1 exit 1
+ECHO [directories] > setup.cfg
+ECHO basedirlist = %LIBRARY_PREFIX% >> setup.cfg
+ECHO [packages] >> setup.cfg
+ECHO tests = False >> setup.cfg
+ECHO sample_data = False >> setup.cfg
+ECHO toolkits_tests = False >> setup.cfg
+ECHO [gui_support] >> setup.cfg
+ECHO cairo = False >> setup.cfg
+ECHO gtk = False >> setup.cfg
+ECHO gtk3agg = False >> setup.cfg
+ECHO gtk3cairo = False >> setup.cfg
+ECHO gtkagg = False >> setup.cfg
+ECHO macosx = False >> setup.cfg
+ECHO pyside = False >> setup.cfg
+ECHO qt4agg = False >> setup.cfg
+ECHO tkagg = False >> setup.cfg
+ECHO windowing = False >> setup.cfg
+ECHO wxagg = False >> setup.cfg
 
 python setup.py install
 if errorlevel 1 exit 1
-
-rd /s /q %SP_DIR%\dateutil
-rd /s /q %SP_DIR%\numpy
-
-if "%ARCH%"=="64" (
-    set PLAT=win-amd64
-) else (
-    set PLAT=win32
-)
-
-copy C:\Tcl%ARCH%\bin\t*.dll %SP_DIR%\matplotlib-%PKG_VERSION%-py%PY_VER%-%PLAT%.egg\matplotlib\backends

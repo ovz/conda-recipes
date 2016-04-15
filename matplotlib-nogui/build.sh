@@ -1,23 +1,33 @@
 #!/bin/bash
 
-if [[ "$(uname)" == "Darwin" ]]
-then
-    SED_INPLACE=("sed" "-i" "" "-E")
-    "${SED_INPLACE[@]}" "s:#ifdef WITH_NEXT_FRAMEWORK:#if 1:g" src/_macosx.m
-else
-    SED_INPLACE=("sed" "-i" "-r")
+if [ "$(uname)" == "Linux" ]; then
+    ln -s libtcl8.5.so "$PREFIX/lib/libtcl.so"
+    ln -s libtk8.5.so "$PREFIX/lib/libtk.so"
 fi
 
-cp setup.cfg.template setup.cfg || exit 1
+cat <<EOF > setup.cfg
+[directories]
+basedirlist = $PREFIX
+[packages]
+tests = False
+toolkit_tests = False
+sample_data = False
+[gui_support]
+cairo = False
+gtk = False
+gtk3agg = False
+gtk3cairo = False
+gtkagg = False
+macosx = False
+pyside = False
+qt4agg = False
+tkagg = False
+windowing = False
+wxagg = False
+EOF
 
-"${SED_INPLACE[@]}" "s:/usr/local:$PREFIX:g" setupext.py
+cat setup.cfg
+sed -i.bak "s|/usr/local|$PREFIX|" setupext.py
 
-# Break Tkinter so it is not get compiled into matplotlib
-"${SED_INPLACE[@]}" 's:(import( tkinter as)? Tkinter):import no_Tkinter:' setupext.py
 
 "$PYTHON" setup.py install
-
-rm -rf "$SP_DIR/PySide"
-rm -rf "$SP_DIR/__pycache__"
-rm -rf "$PREFIX/bin/nose"*
-

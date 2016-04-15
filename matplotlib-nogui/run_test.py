@@ -1,5 +1,5 @@
 import os
-import sys
+import platform
 
 import matplotlib
 import matplotlib.pyplot
@@ -15,10 +15,3 @@ import matplotlib.ttconv
 
 import pylab
 import mpl_toolkits
-
-if int(os.getenv('GUI_TEST', 0)):
-    import matplotlib.pyplot as plt
-    plt.ioff()
-    plt.title('If this window displays, success: CLOSE TO CONTINUE TESTS')
-    plt.plot([1,2,5,9])
-    plt.show()
