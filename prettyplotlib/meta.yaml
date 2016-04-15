@@ -6,28 +6,14 @@ source:
   fn: prettyplotlib-0.1.7.tar.gz
   url: https://pypi.python.org/packages/source/p/prettyplotlib/prettyplotlib-0.1.7.tar.gz
   md5: 85e4d27cefb86d5b2161eff94a77a7bc
-#  patches:
-   # List any patch files here
-   # - fix.patch
 
 build:
-  #preserve_egg_dir: True
-  #entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - prettyplotlib = prettyplotlib:main
-    #
-    # Would create an entry point called prettyplotlib that calls prettyplotlib.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  number: 1
+  number: 2
 
 requirements:
   build:
     - python
+    - nomkl
     - setuptools
     - matplotlib-nogui
     - brewer2mpl
@@ -40,25 +26,13 @@ requirements:
     - brewer2mpl
 
 test:
-  # Python imports
   imports:
     - prettyplotlib
 
-  #commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
   requires:
-    - matplotlib-nogui
+    - matplotlib  # [win]
+    - matplotlib-nogui  # [unix]
 
 about:
   home: http://olgabot.github.io/prettyplotlib
   license: MIT License
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
