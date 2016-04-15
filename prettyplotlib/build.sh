@@ -1,9 +1,7 @@
 #!/bin/bash
 
+# Clear all setuptools dependencies since they are not required, and also they
+# break our recipe when we use matplotlib-nogui package instead of matplotlib.
+> requirements.txt
+
 $PYTHON setup.py install
-
-# Add more build steps here, if they are necessary.
-
-# See
-# http://docs.continuum.io/conda/build.html
-# for a list of environment variables that are set during the build process.
