@@ -13,7 +13,7 @@ build:
 requirements:
   build:
     - python
-    - nomkl
+    - nomkl  # [unix]
     - setuptools
     - matplotlib-nogui
     - brewer2mpl
