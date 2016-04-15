@@ -31,7 +31,7 @@ requirements:
   run:
     - python
     - numpy
-    - libgcc  # [linux]
+    - libgcc-5  # [linux]
     - cycler
     - python-dateutil
     - freetype
