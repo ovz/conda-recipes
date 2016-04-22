@@ -7,4 +7,4 @@ build:
   
 about:
   home: http://qwt.sourceforge.net/
-  summary: Qwt or Qt Widgets for Technical Applications is a set of custom Qt widgets, GUI Components and utility classes which are primarily useful for programs with a technical background. 
+  summary: Qwt or Qt Widgets for Technical Applications is a set of custom Qt widgets, GUI Components and utility classes which are primarily useful for programs with a technical background. Built using Qt5.6.0, MSVC2013, gcc 5.3.
