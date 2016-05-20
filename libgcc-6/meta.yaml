@@ -40,7 +40,7 @@ build:
     - lib/libstdc++.dylib # [osx]
     - lib/libstdc++.so # [linux]
     - lib/libstdc++.so.6 # [linux]
-    - lib/libstdc++.so.6.0.21 # [linux]
+    - lib/libstdc++.so.6.0.22 # [linux]
 
 about:
   home: http://gcc.gnu.org/
