@@ -13,35 +13,61 @@ set -x -e
 INCLUDE_PATH="${PREFIX}/include"
 LIBRARY_PATH="${PREFIX}/lib"
 
-CXXFLAGS="-std=c++11"
-LINKFLAGS="-L${LIBRARY_PATH}"
-
 if [ "$(uname)" == "Darwin" ]; then
-    BOOST_TOOLSET=darwin
-else
-    BOOST_TOOLSET=gcc
+    MACOSX_VERSION_MIN=10.7
+    CXXFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN}"
+    CXXFLAGS="${CXXFLAGS} -stdlib=libc++ -std=c++11"
+    LINKFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN}"
+    LINKFLAGS="${LINKFLAGS} -stdlib=libc++ -std=c++11 -L${LIBRARY_PATH}"
+
+    ./bootstrap.sh \
+        --prefix="${PREFIX}" \
+        --with-python="${PYTHON}" \
+        --with-python-root="${PREFIX} : ${PREFIX}/include/python${PY_VER}m ${PREFIX}/include/python${PY_VER}" \
+        --with-icu="${PREFIX}" \
+        | tee bootstrap.log 2>&1
+
+    ./b2 -q \
+        variant=release \
+        address-model=64 \
+        architecture=x86 \
+        debug-symbols=off \
+        threading=multi \
+        link=static,shared \
+        toolset=clang \
+        python="${PY_VER}" \
+        include="${INCLUDE_PATH}" \
+        cxxflags="${CXXFLAGS}" \
+        linkflags="${LINKFLAGS}" \
+        -j"$(sysctl -n hw.ncpu)" \
+        install | tee b2.log 2>&1
 fi
 
-./bootstrap.sh \
-    --prefix="${PREFIX}" \
-    --with-python="${PYTHON}" \
-    --with-python-root="${PREFIX} : ${PREFIX}/include/python${PY_VER}m ${PREFIX}/include/python${PY_VER}" \
-    --with-icu="${PREFIX}" \
-    | tee bootstrap.log 2>&1
+if [ "$(uname)" == "Linux" ]; then
+    CXXFLAGS="${CXXFLAGS} -std=c++11"
+    LINKFLAGS="${LINKFLAGS} -std=c++11 -L${LIBRARY_PATH}"
 
-./b2 -q \
-    variant=release \
-    address-model="${ARCH}" \
-    architecture=x86 \
-    debug-symbols=off \
-    threading=multi \
-    runtime-link=shared \
-    link=shared \
-    toolset="${BOOST_TOOLSET}" \
-    cxxflags="${CXXFLAGS}" \
-    include="${INCLUDE_PATH}" \
-    linkflags="${LINKFLAGS}" \
-    python="${PY_VER}" \
-    --layout=system \
-    -j"${CPU_COUNT}" \
-    install | tee b2.log 2>&1
+    ./bootstrap.sh \
+        --prefix="${PREFIX}" \
+        --with-python="${PYTHON}" \
+        --with-python-root="${PREFIX} : ${PREFIX}/include/python${PY_VER}m ${PREFIX}/include/python${PY_VER}" \
+        --with-icu="${PREFIX}" \
+        | tee bootstrap.log 2>&1
+
+    ./b2 -q \
+        variant=release \
+        address-model="${ARCH}" \
+        architecture=x86 \
+        debug-symbols=off \
+        threading=multi \
+        runtime-link=shared \
+        link=static,shared \
+        toolset=gcc \
+        python="${PY_VER}" \
+        include="${INCLUDE_PATH}" \
+        cxxflags="${CXXFLAGS}" \
+        linkflags="${LINKFLAGS}" \
+        --layout=system \
+        -j"${CPU_COUNT}" \
+        install | tee b2.log 2>&1
+fi
