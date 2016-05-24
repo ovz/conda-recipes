@@ -3,7 +3,7 @@ package:
   version: 6.1.2
   
 build:
-  number: 2
+  number: 3
   
 about:
   home: http://qwt.sourceforge.net/
