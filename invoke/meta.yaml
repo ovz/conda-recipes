@@ -4,7 +4,7 @@ package:
 
 source:
   git_url: https://github.com/frol/invoke.git
-  git_tag: patch-1
+  git_tag: fixed-encoding-issues-0.13.0
 
 build:
   # There is still an issue with noarch_python packages. Such packages cannot be installed from
