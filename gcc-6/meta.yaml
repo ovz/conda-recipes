@@ -10,7 +10,6 @@ source:
   md5: 8fb6cb98b8459f5863328380fbf06bd1
 
 build:
-  detect_binary_files_with_prefix: true # [not linux32]
   number: 0
 
 requirements:
@@ -26,15 +25,15 @@ requirements:
     # NOTE: Do not make gcc a conda build dependency (you will need to add it to the PATH manually)
     #
     # Other build requirements (https://gcc.gnu.org/install/prerequisites.html):
-    - gmp >=4.3.2
+    - gmp >=6.1
     - mpfr >=2.4.2
     - mpc >=0.8.1
-    - isl >=0.14,<=0.16.1
+    - isl >=0.17,<=0.17.1
   run:
-    - gmp >=4.3.2
+    - gmp >=6.1
     - mpfr >=2.4.2
     - mpc >=0.8.1
-    - isl >=0.14,<=0.16.1
+    - isl >=0.17,<=0.17.1
 
 test:
   commands:
