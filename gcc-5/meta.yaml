@@ -1,11 +1,13 @@
+{% set version = "5.4.0" %}
+
 package:
   name: gcc-5
-  version: "5.3.0"
+  version: {{ version }}
 
 source:
-  fn: gcc-5.3.0.tar.bz2
-  url: http://mirrors.kernel.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2
-  md5: c9616fd448f980259c31de613e575719
+  fn: gcc-{{ version }}.tar.bz2
+  url: http://mirrors.kernel.org/gnu/gcc/gcc-{{ version }}/gcc-{{ version }}.tar.bz2
+  md5: 4c626ac2a83ef30dfb9260e6f59c2b30
 
 build:
   number: 0
