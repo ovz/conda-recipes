@@ -10,6 +10,7 @@ requirements:
 
 build:
   number: 0
+  skip: True  # [not unix]
 
   always_include_files:
     - lib/libgcc_s.1.dylib # [osx]
