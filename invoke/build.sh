@@ -12,4 +12,4 @@ else
     rm -rf invoke/vendor/yaml2
 fi
 
-"$PYTHON" setup.py install
+"$PYTHON" setup.py install --single-version-externally-managed --record=record.txt
