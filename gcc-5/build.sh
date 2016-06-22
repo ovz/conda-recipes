@@ -53,7 +53,8 @@ else
 fi
 
 # Split compilation into stages so OS X is satisfied
-make -j1 all-gcc all-target-libgcc
+make all-gcc
+make all-target-libgcc
 make install-gcc install-target-libgcc
 make all-target-libstdc++-v3
 make install-target-libstdc++-v3
