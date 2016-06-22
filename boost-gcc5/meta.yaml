@@ -28,7 +28,7 @@ requirements:
 
   run:
     - python
-    - libgcc-5          # [linux]
+    - libgcc-5          # [unix]
     - icu 56.*          # [unix]
     - zlib 1.2*
 
