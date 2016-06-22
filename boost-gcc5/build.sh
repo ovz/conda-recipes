@@ -34,7 +34,7 @@ if [ "$(uname)" == "Darwin" ]; then
         debug-symbols=off \
         threading=multi \
         link=static,shared \
-        toolset=clang \
+        toolset=gcc \
         python="${PY_VER}" \
         include="${INCLUDE_PATH}" \
         cxxflags="${CXXFLAGS}" \
