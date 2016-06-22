@@ -21,7 +21,7 @@ build:
 requirements:
   build:
     - python
-    - gcc-5             # [linux]
+    - gcc-5             # [unix]
     - icu 56.*          # [unix]
     - bzip2             # [unix]
     - zlib 1.2*
