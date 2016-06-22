@@ -30,13 +30,11 @@ requirements:
     - mpfr >=2.4.2
     - mpc >=0.8.1
     - isl >=0.17,<=0.17.1
-    - cloog 0.18.0
   run:
     - gmp >=6.1
     - mpfr >=2.4.2
     - mpc >=0.8.1
     - isl >=0.17,<=0.17.1
-    - cloog 0.18.0
 
 test:
   commands:
