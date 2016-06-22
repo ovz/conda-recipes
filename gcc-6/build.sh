@@ -27,7 +27,6 @@ if [ "$(uname)" == "Darwin" ]; then
         --with-mpfr="$PREFIX" \
         --with-mpc="$PREFIX" \
         --with-isl="$PREFIX" \
-        --with-cloog="$PREFIX" \
         --with-boot-ldflags="$LDFLAGS" \
         --with-stage1-ldflags="$LDFLAGS" \
         --enable-checking=release \
@@ -48,7 +47,6 @@ else
         --with-mpfr="$PREFIX" \
         --with-mpc="$PREFIX" \
         --with-isl="$PREFIX" \
-        --with-cloog="$PREFIX" \
         --enable-checking=release \
         --with-tune=generic \
         --disable-multilib
