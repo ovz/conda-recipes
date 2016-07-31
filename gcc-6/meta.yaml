@@ -8,10 +8,14 @@ source:
   fn: gcc-{{ version }}.tar.bz2
   url: http://mirrors.kernel.org/gnu/gcc/gcc-{{ version }}/gcc-{{ version }}.tar.bz2
   md5: 8fb6cb98b8459f5863328380fbf06bd1
+  patches:
+    - 0001-Libiberty-normalize-split-directories.patch
 
+# GCC relocates itself correctly under most circumstances, and 0001-.patch
+# along with using ${GCC_PREFIX}/.. fixes the issues with our configuration.
 build:
-  number: 1
-  detect_binary_files_with_prefix: true
+  number: 2
+  detect_binary_files_with_prefix: false
   skip: True  # [not unix]
 
 requirements:
