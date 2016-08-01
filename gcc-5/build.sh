@@ -28,7 +28,7 @@ ln -s "$PREFIX/lib" "$PREFIX/lib64"
 if [ "$(uname)" == "Darwin" ]; then
     # On Mac, we expect that the user has installed the xcode command-line utilities (via the 'xcode-select' command).
     # The system's libstdc++.6.dylib will be located in /usr/lib, and we need to help the gcc build find it.
-    export LDFLAGS="-Wl,-headerpad_max_install_names -Wl,-L${PREFIX}/lib -Wl,-L/usr/lib"
+    export LDFLAGS="-Wl,-headerpad_max_install_names,-rpath,${PREFIX}/lib -Wl,-L${PREFIX}/lib -Wl,-L/usr/lib"
     export DYLD_FALLBACK_LIBRARY_PATH="$PREFIX/lib:/usr/lib"
 
     ./configure \
