@@ -50,10 +50,7 @@ else
     # For reference during post-link.sh, record some
     # details about the OS this binary was produced with.
     mkdir -p "${PREFIX}/share"
-
-    # lsb_release can complain about LSB modules in stderr, so we
-    # ignore that.
-    lsb_release -a 1> "$PREFIX/share/conda-gcc-build-machine-os-details"
+    cat /etc/*-release > "$PREFIX/share/conda-gcc-build-machine-os-details"
 
     ./configure \
         --prefix="$GCC_PREFIX" \
