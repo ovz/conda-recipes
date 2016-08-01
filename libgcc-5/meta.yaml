@@ -9,7 +9,7 @@ requirements:
     - gcc-5 {{ version }}
 
 build:
-  number: 0
+  number: 2
   skip: True  # [not unix]
 
   always_include_files:
