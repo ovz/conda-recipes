@@ -1,5 +1,5 @@
---- gcc-4.8.5/libiberty/make-relative-prefix.c.orig	2016-06-20 10:08:24.002962840 +0100
-+++ gcc-4.8.5/libiberty/make-relative-prefix.c	2016-06-20 10:53:47.359700416 +0100
+--- libiberty/make-relative-prefix.c.orig	2016-06-20 10:08:24.002962840 +0100
++++ libiberty/make-relative-prefix.c	2016-06-20 10:53:47.359700416 +0100
 @@ -198,6 +198,49 @@
    return dirs;
  }
