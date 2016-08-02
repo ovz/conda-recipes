@@ -6,7 +6,7 @@ source:
   path: .
 
 build:
-  number: 4
+  number: 5
   
 about:
   home: http://qwt.sourceforge.net/
