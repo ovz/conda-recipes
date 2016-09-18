@@ -1,0 +1,27 @@
+package:
+    name: httplib2
+    version: 0.9.1
+
+source:
+    git_url: https://github.com/httplib2/httplib2
+    git_tag: v0.9.1
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - setuptools
+        - python
+
+    run:
+        - python
+
+test:
+    imports:
+        - httplib2
+
+about:
+  home: https://github.com/httplib2/httplib2
+  license: MIT License
+  summary: httplib2 is a comprehensive HTTP client library, httplib2.py supports many features left out of other HTTP libraries.

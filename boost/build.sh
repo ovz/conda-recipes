@@ -14,15 +14,16 @@ INCLUDE_PATH="${PREFIX}/include"
 LIBRARY_PATH="${PREFIX}/lib"
 
 if [ "$(uname)" == "Darwin" ]; then
-    MACOSX_VERSION_MIN=10.8
+    MACOSX_VERSION_MIN=10.6
     CXXFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    CXXFLAGS="${CXXFLAGS} -std=c++11 -stdlib=libc++"
+    CXXFLAGS="${CXXFLAGS} -stdlib=libstdc++"
     LINKFLAGS="-mmacosx-version-min=${MACOSX_VERSION_MIN}"
-    LINKFLAGS="${LINKFLAGS} -stdlib=libc++ -L${LIBRARY_PATH}"
+    LINKFLAGS="${LINKFLAGS} -stdlib=libstdc++ -L${LIBRARY_PATH}"
 
     ./bootstrap.sh \
         --prefix="${PREFIX}" \
         --with-python="${PYTHON}" \
+        --with-python-root="${PREFIX} : ${PREFIX}/include/python${PY_VER}m ${PREFIX}/include/python${PY_VER}" \
         --with-icu="${PREFIX}" \
         | tee bootstrap.log 2>&1
 
@@ -32,7 +33,7 @@ if [ "$(uname)" == "Darwin" ]; then
         architecture=x86 \
         debug-symbols=off \
         threading=multi \
-        link=shared \
+        link=static,shared \
         toolset=clang \
         include="${INCLUDE_PATH}" \
         cxxflags="${CXXFLAGS}" \
@@ -56,7 +57,7 @@ if [ "$(uname)" == "Linux" ]; then
         debug-symbols=off \
         threading=multi \
         runtime-link=shared \
-        link=shared \
+        link=static,shared \
         toolset=gcc \
         python="${PY_VER}" \
         include="${INCLUDE_PATH}" \

@@ -1,0 +1,37 @@
+package:
+  name: glpk
+  version: 4.57
+
+source:
+  fn: glpk-4.57.tar.gz
+  url: http://ftp.gnu.org/gnu/glpk/glpk-4.57.tar.gz
+  md5: 237531a54f73155842f8defe51aedb0f
+
+build:
+  features:
+    - vc9      [win and py27]
+    - vc10     [win and py34]
+    - vc14     [win and py35]
+
+requirements:
+  build:
+    - python   [win]
+    - gmp      [not win]
+
+  run:
+    - gmp      [not win]
+
+test:
+  files:
+    - plan.mps
+    - setup.py
+    - spam.c
+
+  commands:
+    - glpsol --mps plan.mps
+    - python setup.py test
+
+about:
+  home: https://www.gnu.org/software/glpk/
+  license: GNU General Public License v3
+  summary: GNU Linear Programming Kit

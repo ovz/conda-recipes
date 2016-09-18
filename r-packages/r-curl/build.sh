@@ -4,8 +4,10 @@
 mv DESCRIPTION DESCRIPTION.old
 grep -v '^Priority: ' DESCRIPTION.old > DESCRIPTION
 
-# curl is not build with the new rpath logic, so use this as a workaround
-export DYLD_FALLBACK_LIBRARY_PATH=$PREFIX/lib:$(HOME)/lib:/usr/local/lib:/lib:/usr/lib
+# curl is not built with the new rpath logic, so use this as a workaround
+if [ `uname` == Darwin ]; then
+    export DYLD_FALLBACK_LIBRARY_PATH=$PREFIX/lib:$(HOME)/lib:/usr/local/lib:/lib:/usr/lib
+fi
 
 export CURL_INCLUDES=$PREFIX/include
 

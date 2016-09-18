@@ -1,14 +1,17 @@
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
+
 package:
   name: r-class
   # Note that conda versions cannot contain -, so any -'s in the version have
   # been replaced with _'s.
-  version: "7.3_13"
+  version: "7.3_14"
 
 source:
-  fn: class_7.3-13.tar.gz
+  fn: class_7.3-14.tar.gz
   url:
-    - http://cran.r-project.org/src/contrib/class_7.3-13.tar.gz
-    - http://cran.r-project.org/src/contrib/Archive/class/class_7.3-13.tar.gz
+    - http://cran.r-project.org/src/contrib/class_7.3-14.tar.gz
+    - http://cran.r-project.org/src/contrib/Archive/class/class_7.3-14.tar.gz
 
 
   # You can add a hash for the file here, like md5 or sha1
@@ -32,13 +35,14 @@ build:
 requirements:
   build:
     - r-base
-    - r-mass # [not win]
-    - gcc # [not win]
+    - r-mass
+    - posix               # [win]
+    - {{native}}toolchain # [win]
+    - gcc                 # [not win]
 
   run:
-    - r
-    - r-mass # [not win]
-    - libgcc # [not win]
+    - r-base
+    - r-mass
 
 test:
   commands:
@@ -57,13 +61,14 @@ about:
   license: GPL-2 | GPL-3
   summary: Various functions for classification, including k-nearest neighbour, Learning Vector
     Quantization and Self-Organizing Maps.
+  license_family: GPL3
 
 # The original CRAN metadata for this package was:
 
 # Package: class
 # Priority: recommended
-# Version: 7.3-13
-# Date: 2015-06-29
+# Version: 7.3-14
+# Date: 2015-08-29
 # Depends: R (>= 3.0.0), stats, utils
 # Imports: MASS
 # Authors@R: c(person("Brian", "Ripley", role = c("aut", "cre", "cph"), email = "ripley@stats.ox.ac.uk"), person("William", "Venables", role = "cph"))
@@ -73,11 +78,11 @@ about:
 # License: GPL-2 | GPL-3
 # URL: http://www.stats.ox.ac.uk/pub/MASS4/
 # NeedsCompilation: yes
-# Packaged: 2015-06-29 08:47:45 UTC; ripley
+# Packaged: 2015-08-28 15:25:36 UTC; ripley
 # Author: Brian Ripley [aut, cre, cph], William Venables [cph]
 # Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
 # Repository: CRAN
-# Date/Publication: 2015-06-29 17:15:20
+# Date/Publication: 2015-08-30 08:59:38
 
 # See
 # http://docs.continuum.io/conda/build.html for

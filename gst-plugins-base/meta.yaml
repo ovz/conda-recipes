@@ -1,0 +1,22 @@
+package:
+  name: gst-plugins-base
+  version: 1.8.0
+
+source:
+  fn: gst-plugins-base-1.8.0.tar.xz
+  url: https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.8.0.tar.xz
+  sha256: abc0acc1d15b4b9c97c65cd9689bd6400081853b9980ea428d3c8572dd791522
+
+about:
+    home: http://gstreamer.freedesktop.org/
+    license: LGPL
+
+requirements:
+  build:
+    - gstreamer  1.8*
+    - xz
+  
+  run:
+    - gstreamer
+
+

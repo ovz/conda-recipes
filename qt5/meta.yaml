@@ -1,28 +1,47 @@
 package:
   name: qt5
-  version: 5.4.1
+  version: 5.6.0
 
 source:
-  fn: qt-everywhere-opensource-src-5.4.1.tar.gz # [unix]
-  url: http://download.qt.io/official_releases/qt/5.4/5.4.1/single/qt-everywhere-opensource-src-5.4.1.tar.gz # [unix]
-  sha1: e696b353a80ad53bcfd9535e744b5cd3246f5fd1 # [unix]
-  fn: qt-everywhere-opensource-src-5.4.1.zip # [win]
-  url: http://download.qt.io/official_releases/qt/5.4/5.4.1/single/qt-everywhere-opensource-src-5.4.1.zip # [win]
-  sha1: 40ade5606b42b1cfe9522e04323d2d6e2f3365c0 # [win]
+  fn:   qt-everywhere-opensource-src-5.6.0.tar.xz                                                               [unix]
+  url:  http://download.qt.io/official_releases/qt/5.6/5.6.0/single/qt-everywhere-opensource-src-5.6.0.tar.xz   [unix]
+  md5:  47763c168f58b1196271b231f03c8bae                                                                        [unix]
+  fn:   qt-everywhere-opensource-src-5.6.0.zip                                                                  [win]
+  url:  http://download.qt.io/official_releases/qt/5.6/5.6.0/single/qt-everywhere-opensource-src-5.6.0.zip      [win]
+  md5:  03402708f260dcc917abae9bc559c1df                                                                        [win]
 
 build:
   detect_binary_files_with_prefix: true
 
 requirements:
   build:
-    - freetype # [unix]
-    - jom # [win]
-    - python # [win]
-    - icu
-  run:
-    - freetype # [unix]
-    - icu
+    - icu           54*
+    - python
+    - jom                         [win]
+    - libpng        1.6*          [unix]
+    - jpeg                        [unix]
+    - zlib                        [unix]
+    - xz                          [unix]
+    - bison                       [linux]
+    - flex                        [linux]
+    - fontconfig                  [linux]
+    - gst-plugins-base   1.8*     [linux]
+    - libxcb                      [linux]
+    - gcc                         [linux]
+    - freetype                    [linux]
+    - openssl                     [linux]
 
+  run:
+    - icu           54*
+    - zlib                        [unix]
+    - libpng        1.6*          [unix]
+    - jpeg                        [unix]
+    - fontconfig                  [linux]
+    - gst-plugins-base   1.8*     [linux]
+    - libxcb                      [linux]
+    - libgcc                      [linux]
+    - freetype                    [linux]
+    - openssl                     [linux]
 
 about:
     home: http://www.qt.io

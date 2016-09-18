@@ -1,0 +1,27 @@
+package:
+    name: uritemplate
+    version: 0.6
+
+source:
+    git_url: https://github.com/uri-templates/uritemplate-py
+    git_tag: uri-template-py-0.6
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - setuptools
+        - python
+
+    run:
+        - python
+
+test:
+    imports:
+        - uritemplate
+
+about:
+  home: https://github.com/uri-templates/uritemplate-py
+  license: Apache License 2.0
+  summary: This is a Python implementation of RFC6570, URI Template, and can expand templates up to and including Level 4 in that specification.
