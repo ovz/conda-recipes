@@ -1,7 +1,15 @@
 package:
   name: boost_bin
-  version: 1.57.0.4
+  version: 1.57.0.5
+
+source:
+  path: .
   
+build:
+  number: 2
+  # Build takes quite a long time with relocations. 
+  binary_relocation: False    
+ 
 requirements:
   build:
     - boost_bin_common
