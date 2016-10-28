@@ -1,4 +1,4 @@
-{% set version = "6.1.0" %}
+{% set version = "6.2.0" %}
 
 package:
   name: gcc-6
@@ -7,14 +7,14 @@ package:
 source:
   fn: gcc-{{ version }}.tar.bz2
   url: http://mirrors.kernel.org/gnu/gcc/gcc-{{ version }}/gcc-{{ version }}.tar.bz2
-  md5: 8fb6cb98b8459f5863328380fbf06bd1
+  md5: 9768625159663b300ae4de2f4745fcc4
   patches:
     - 0001-Libiberty-normalize-split-directories.patch
 
 # GCC relocates itself correctly under most circumstances, and 0001-.patch
 # along with using ${GCC_PREFIX}/.. fixes the issues with our configuration.
 build:
-  number: 2
+  number: 0
   detect_binary_files_with_prefix: false
   skip: True  # [not unix]
 
