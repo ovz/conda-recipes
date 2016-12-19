@@ -1,0 +1,40 @@
+{% set name = "pytest-lazy-fixture" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "d7c56df192f8d4d1ce7d8fed82717eb54833447abe73b851b4c105bea36eab69" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  noarch_python: true
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - pytest_lazyfixture
+
+about:
+  home: https://github.com/TvoroG/pytest-lazy-fixture
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'It helps to use fixtures in pytest.mark.parametrize'
+
+  # The remaining entries in this section are optional, but recommended
+  description: |
+    Use your fixtures in @pytest.mark.parametrize.
+  dev_url: https://github.com/TvoroG/pytest-lazy-fixture
